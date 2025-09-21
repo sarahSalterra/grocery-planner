@@ -13,7 +13,16 @@ type Filters = {
   dishType?: DishType | 'any';
 };
 
-const cuisines = Array.from(new Set(MEALS.map((m) => m.cuisine === 'Russian' ? 'Slavic' : m.cuisine))).sort();
+function normalizeCuisine(cuisine: string): string {
+  const c = cuisine.toLowerCase();
+  if (['russian', 'ukrainian', 'belarusian', 'polish', 'slovak', 'slavic'].includes(c)) return 'Slavic';
+  if (['chinese', 'japanese', 'korean', 'thai', 'vietnamese', 'indian', 'asian'].includes(c)) return 'Asian';
+  // pass-through common
+  if (c === 'french') return 'French';
+  return cuisine;
+}
+
+const cuisines = Array.from(new Set(MEALS.map((m) => normalizeCuisine(m.cuisine)))).filter((c) => c !== 'French').sort();
 
 export function MealPlanning() {
   const { state, dispatch } = useAppState();
@@ -24,7 +33,7 @@ export function MealPlanning() {
       if (filters.price && filters.price !== 'any' && m.priceLevel !== filters.price) return false;
       if (filters.difficulty && filters.difficulty !== 'any' && m.difficulty !== filters.difficulty) return false;
       if (filters.timeIntensity && filters.timeIntensity !== 'any' && m.timeIntensity !== filters.timeIntensity) return false;
-      if (filters.cuisine && filters.cuisine !== 'any' && m.cuisine !== filters.cuisine) return false;
+      if (filters.cuisine && filters.cuisine !== 'any' && normalizeCuisine(m.cuisine) !== filters.cuisine) return false;
       if (filters.meatType && filters.meatType !== 'any' && m.meatType !== filters.meatType) return false;
       if (filters.dishType && filters.dishType !== 'any' && m.dishType !== filters.dishType) return false;
       return true;
@@ -134,13 +143,9 @@ export function MealPlanning() {
             <div className="label">Cuisine</div>
             <select className="control-sm" value={filters.cuisine} onChange={(e) => setFilters((f) => ({ ...f, cuisine: e.target.value as Filters['cuisine'] }))}>
               <option value="any">Any</option>
-              {cuisines.map((c0) => {
-                const c = c0 === 'Russian' ? 'Slavic' : c0;
-                if (c === 'Chinese') return null; // folded under broader 'Asian'
-                return (
+              {cuisines.map((c) => (
                 <option key={c} value={c}>{c}</option>
-                );
-              })}
+              ))}
             </select>
           </div>
           <div className="field inline">

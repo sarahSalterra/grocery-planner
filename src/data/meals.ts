@@ -939,7 +939,7 @@ export const MEALS: Meal[] = [
     timeMinutes: 40,
     multitaskable: false,
     cuisine: 'Indian',
-    meatType: 'none',
+    meatType: 'chicken',
     priceLevel: '$',
     difficulty: 'easy',
     timeIntensity: 'quick',
