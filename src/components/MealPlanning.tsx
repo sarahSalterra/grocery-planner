@@ -198,7 +198,7 @@ export function MealPlanning() {
           ))}
         </div>
         <div className="row" style={{ marginTop: 12, justifyContent: 'flex-end' }}>
-          <button className="btn primary" disabled={!allDaysHaveAtLeastOne} onClick={continueToDesserts}>Next: Desserts</button>
+          <button className="btn primary" disabled={!allDaysHaveAtLeastOne} onClick={continueToDesserts}>Next: Extras</button>
         </div>
       </div>
 
@@ -285,9 +285,14 @@ export function MealPlanning() {
                 )}
               </div>
               <div>
-                <span className={`chip ${!day.mainMealId ? 'danger' : day.sideMealIds.length === 0 ? 'warn' : 'ok'}`}>
-                  {day.mainMealId ? (day.sideMealIds.length === 0 ? 'No side' : 'Complete') : 'No main'}
-                </span>
+                {(() => {
+                  const hasAnySide = day.sideMealIds.length > 0 || day.sideExtraIngredients.length > 0;
+                  const label = day.mainMealId ? (hasAnySide ? 'Complete' : 'No side') : 'No main';
+                  const color = !day.mainMealId ? 'danger' : hasAnySide ? 'ok' : 'warn';
+                  return (
+                    <span className={`chip ${color}`}>{label}</span>
+                  );
+                })()}
               </div>
             </div>
           ))}

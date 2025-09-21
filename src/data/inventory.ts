@@ -99,7 +99,7 @@ export const PANTRY_INVENTORY: PantryItem[] = [
 ];
 
 export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
-  { id: 'paper-towels', name: 'paper owels', category: 'household' },
+  { id: 'paper-towels', name: 'paper towels', category: 'household' },
   { id: 'toilet-paper', name: 'toilet paper', category: 'household' },
   { id: 'dish-soap', name: 'dish soap', category: 'household' },
   { id: 'dish-detergent', name: 'dish detergent', category: 'household' },
@@ -126,7 +126,7 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'tampons', name: 'tampons', category: 'hygiene' },
   { id: 'liners', name: 'liners', category: 'hygiene' },
   { id: 'q-tips', name: 'q-tips', category: 'hygiene' },
-  { id: 'tissues', name: 'issues', category: 'hygiene' },
+  { id: 'tissues', name: 'tissues', category: 'hygiene' },
   { id: 'cotton-pads', name: 'cotton pads', category: 'hygiene' },
   { id: 'ziplock-bags', name: 'ziplock bags', category: 'household' },
   { id: 'trash-bags', name: 'trash bags', category: 'household' },

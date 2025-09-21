@@ -1421,8 +1421,8 @@ export const MEALS: Meal[] = [
     priceLevel: '$',
     difficulty: 'medium',
     timeIntensity: 'long',
-    dishType: 'dessert',
-    extraType: 'breakfast'
+    dishType: 'breakfast',
+    extraType: 'dessert'
   },
   {
     id: 'peanut-butter-brownies',

@@ -14,15 +14,22 @@ type Filters = {
 export function DessertsPlanning() {
   const { state, dispatch } = useAppState();
   const [filters, setFilters] = useState<Filters>({ price: 'any', difficulty: 'any', timeIntensity: 'any', type: 'dessert' });
-  const dessertsAll = useMemo(() => MEALS.filter((m) => m.dishType === 'dessert'), []);
-  const filtered = useMemo(() => dessertsAll.filter((d) => {
+  // Pool includes all desserts and any items explicitly tagged with an extraType (e.g., snacks, breakfast, beverages),
+  // including side dishes or desserts that carry an extraType.
+  const extrasPool = useMemo(() => MEALS.filter((m) => m.dishType === 'dessert' || Boolean(m.extraType)), []);
+  const filtered = useMemo(() => extrasPool.filter((d) => {
     if (filters.price && filters.price !== 'any' && d.priceLevel !== filters.price) return false;
     if (filters.difficulty && filters.difficulty !== 'any' && d.difficulty !== filters.difficulty) return false;
     if (filters.timeIntensity && filters.timeIntensity !== 'any' && d.timeIntensity !== filters.timeIntensity) return false;
-    if (filters.type && filters.type !== 'any' && d.extraType && d.extraType !== filters.type) return false;
-    if (filters.type && filters.type !== 'any' && !d.extraType && filters.type !== 'dessert') return false;
+    // Type filtering rules:
+    // - If extraType is set, it must match the selected type (unless 'any')
+    // - If extraType is not set, treat as 'dessert' for filtering purposes
+    if (filters.type && filters.type !== 'any') {
+      if (d.extraType) return d.extraType === filters.type;
+      return filters.type === 'dessert';
+    }
     return true;
-  }), [filters, dessertsAll]);
+  }), [filters, extrasPool]);
 
   const toggle = (id: string) => {
     const set = new Set(state.selection.dessertMealIds);
