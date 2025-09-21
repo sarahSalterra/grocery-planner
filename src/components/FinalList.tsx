@@ -44,11 +44,7 @@ export function FinalList() {
   const restockItems = HOUSEHOLD_INVENTORY.filter((h) => !state.restockSelectedIds.includes(h.id));
 
   // Normalize household categories to align where possible with genre ordering
-  const mapCategoryToGenre = (cat: string): string => {
-    if (cat === 'snack') return 'snacks';
-    if (cat === 'drink') return 'beverages';
-    return cat;
-  };
+  const mapCategoryToGenre = (cat: string): string => cat;
 
   type CombinedItem = {
     key: string;

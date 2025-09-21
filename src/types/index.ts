@@ -39,7 +39,7 @@ export interface PantryItem {
 export interface HouseholdItem {
   id: string;
   name: string;
-  category: 'household' | 'hygiene' | 'pet' | 'snack' | 'drink' | 'other';
+  category: 'snacks' | 'beverages' | 'pantry' | 'butchery' | 'dairy' | 'frozen' | 'spices' | 'baking' | 'household' | 'hygiene' | 'pet' | 'other';
 }
 
 export interface DayPlan {

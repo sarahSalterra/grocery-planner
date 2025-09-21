@@ -170,10 +170,10 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'breakfast-potatoes', name: 'breakfast potatoes', category: 'frozen'},
   { id: 'pancake-mix', name: 'pancake mix', category: 'pantry'},
   { id: 'cheddar-cheese', name: 'cheddar cheese', category: 'dairy'},
-  { id: 'thyme', name: 'thyme', category: 'pantry'},
-  { id: 'salt', name: 'salt', category: 'pantry'},
-  { id: 'black-pepper', name: 'black pepper', category: 'pantry'},
-  { id: 'seasoned-salt', name: 'seasoned salt', category: 'pantry'}
+  { id: 'thyme', name: 'thyme', category: 'spices'},
+  { id: 'salt', name: 'salt', category: 'spices'},
+  { id: 'black-pepper', name: 'black pepper', category: 'spices'},
+  { id: 'seasoned-salt', name: 'seasoned salt', category: 'spices'}
 ];
 
 

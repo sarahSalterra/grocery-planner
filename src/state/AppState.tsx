@@ -19,7 +19,7 @@ type Action =
 
 const initialSelection: SelectionState = {
   numDays: 3,
-  days: Array.from({ length: 3 }).map<DayPlan>(() => ({ sideMealIds: [], sideExtraIngredients: [] })),
+  days: Array.from({ length: 3 }).map<DayPlan>(() => ({ mainMealId: undefined, sideMealIds: [], sideExtraIngredients: [] })),
   dessertMealIds: [],
 };
 
@@ -37,7 +37,7 @@ function ensureDaysLength(selection: SelectionState, numDays: number): Selection
     sideMealIds: d.sideMealIds || [],
     sideExtraIngredients: d.sideExtraIngredients || [],
   }));
-  while (days.length < numDays) days.push({ sideMealIds: [], sideExtraIngredients: [] });
+  while (days.length < numDays) days.push({ mainMealId: undefined, sideMealIds: [], sideExtraIngredients: [] });
   return { ...selection, numDays, days };
 }
 
@@ -67,7 +67,7 @@ function reducer(state: AppStateShape, action: Action): AppStateShape {
     }
     case 'removeMealSlot': {
       const days = state.selection.days.filter((_, i) => i !== action.dayIndex);
-      if (days.length === 0) days.push({ sideMealIds: [], sideExtraIngredients: [] });
+      if (days.length === 0) days.push({ mainMealId: undefined, sideMealIds: [], sideExtraIngredients: [] });
       return { ...state, selection: { ...state.selection, days, numDays: days.length } };
     }
     case 'addSideExtraIngredient': {
@@ -87,13 +87,7 @@ function reducer(state: AppStateShape, action: Action): AppStateShape {
       });
       return { ...state, selection: { ...state.selection, days } };
     }
-    case 'setPantryCheckMeals':
-      return state; // deprecated
-    case 'updatePantryCheckMeals': {
-      const next = state.pantryCheck.slice();
-      next[action.index] = { ...next[action.index], haveEnough: action.haveEnough };
-      return { ...state, pantryCheck: next };
-    }
+    
     case 'setDessertSelections':
       return { ...state, selection: { ...state.selection, dessertMealIds: action.mealIds } };
     case 'setPantryCheck':
