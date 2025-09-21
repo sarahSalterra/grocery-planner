@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo, useReducer } from 'react';
 import { AppStateShape, DayPlan, Mode, PantryCheckItem, SelectionState } from '@types';
+import { aggregateIngredientArray } from '@utils/aggregate';
 
 type Action =
   | { type: 'setMode'; mode: Mode }
@@ -90,8 +91,12 @@ function reducer(state: AppStateShape, action: Action): AppStateShape {
     
     case 'setDessertSelections':
       return { ...state, selection: { ...state.selection, dessertMealIds: action.mealIds } };
-    case 'setPantryCheck':
-      return { ...state, pantryCheck: action.items };
+    case 'setPantryCheck': {
+      // Deduplicate incoming items by name+unit and sum amounts to avoid duplicates in the pantry checklist
+      const aggregated = aggregateIngredientArray(action.items.map((i) => i.ingredient));
+      const uniqueItems: PantryCheckItem[] = aggregated.map((ingredient) => ({ ingredient, haveEnough: false }));
+      return { ...state, pantryCheck: uniqueItems };
+    }
     case 'updatePantryCheck': {
       const next = state.pantryCheck.slice();
       next[action.index] = { ...next[action.index], haveEnough: action.haveEnough };

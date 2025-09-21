@@ -13,7 +13,7 @@ type Filters = {
   dishType?: DishType | 'any';
 };
 
-const cuisines = Array.from(new Set(MEALS.map((m) => m.cuisine))).sort();
+const cuisines = Array.from(new Set(MEALS.map((m) => m.cuisine === 'Russian' ? 'Slavic' : m.cuisine))).sort();
 
 export function MealPlanning() {
   const { state, dispatch } = useAppState();
@@ -134,9 +134,13 @@ export function MealPlanning() {
             <div className="label">Cuisine</div>
             <select className="control-sm" value={filters.cuisine} onChange={(e) => setFilters((f) => ({ ...f, cuisine: e.target.value as Filters['cuisine'] }))}>
               <option value="any">Any</option>
-              {cuisines.map((c) => (
+              {cuisines.map((c0) => {
+                const c = c0 === 'Russian' ? 'Slavic' : c0;
+                if (c === 'Chinese') return null; // folded under broader 'Asian'
+                return (
                 <option key={c} value={c}>{c}</option>
-              ))}
+                );
+              })}
             </select>
           </div>
           <div className="field inline">
@@ -147,7 +151,6 @@ export function MealPlanning() {
               <option value="chicken">Chicken</option>
               <option value="pork">Pork</option>
               <option value="seafood">Seafood</option>
-              <option value="vegetarian">Vegetarian</option>
               <option value="none">None</option>
             </select>
           </div>
