@@ -1148,7 +1148,7 @@ export const MEALS: Meal[] = [
      ]
   },
   {
-    id: 'guacamole',
+    id: 'guacamole-snack',
     name: 'Guacamole',
     description: 'Creamy avocado dip with lime and pomegranate',
     ingredients: [
@@ -1395,7 +1395,7 @@ export const MEALS: Meal[] = [
     difficulty: 'easy',
     timeIntensity: 'medium',
     dishType: 'dessert',
-    extraType: 'dessert'
+    extraType: 'snack'
   },
   {
     id: 'cinnamon-rolls',
@@ -1421,8 +1421,8 @@ export const MEALS: Meal[] = [
     priceLevel: '$',
     difficulty: 'medium',
     timeIntensity: 'long',
-    dishType: 'breakfast',
-    extraType: 'dessert'
+    dishType: 'dessert',
+    extraType: 'breakfast'
   },
   {
     id: 'peanut-butter-brownies',
