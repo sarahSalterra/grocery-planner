@@ -21,14 +21,12 @@ export function DessertsPlanning() {
     if (filters.price && filters.price !== 'any' && d.priceLevel !== filters.price) return false;
     if (filters.difficulty && filters.difficulty !== 'any' && d.difficulty !== filters.difficulty) return false;
     if (filters.timeIntensity && filters.timeIntensity !== 'any' && d.timeIntensity !== filters.timeIntensity) return false;
-    // Type filtering rules:
-    // - If extraType is set, it must match the selected type (unless 'any')
-    // - If extraType is not set, treat as 'dessert' for filtering purposes
-    if (filters.type && filters.type !== 'any') {
-      if (d.extraType) return d.extraType === filters.type;
-      return filters.type === 'dessert';
-    }
-    return true;
+    // Type filtering:
+    // - 'dessert' type shows anything with dishType === 'dessert' (regardless of extraType)
+    // - other types show items whose extraType matches exactly
+    if (!filters.type || filters.type === 'any') return true;
+    if (filters.type === 'dessert') return d.dishType === 'dessert';
+    return d.extraType === filters.type;
   }), [filters, extrasPool]);
 
   const toggle = (id: string) => {
