@@ -1258,7 +1258,7 @@ export const MEALS: Meal[] = [
     ],
     timeMinutes: 20,
     multitaskable: false,
-    cuisine: 'French',
+    cuisine: 'American',
     meatType: 'beef',
     priceLevel: '$$$',
     difficulty: 'easy',
@@ -1540,7 +1540,8 @@ export const MEALS: Meal[] = [
       { name: 'chocolate chips', unit: 'cup', amount: 1, genre: 'baking' },
       { name: 'cherries', unit: 'cup', amount: 1, genre: 'produce' },
       { name: 'almond extract', unit: 'tsp', amount: 1, genre: 'baking' },
-      { name: 'vanilla extract', unit: 'tsp', amount: 1, genre: 'baking' }
+      { name: 'vanilla extract', unit: 'tsp', amount: 1, genre: 'baking' },
+      { name: 'muffin/cupcake liners', unit: 'unit', amount: 1, genre: 'baking' }
     ],
     timeMinutes: 20,
     multitaskable: true,
@@ -1567,7 +1568,8 @@ export const MEALS: Meal[] = [
       { name: 'lemon juice', unit: 'tbsp', amount: 2, genre: 'produce' },
       { name: 'poppy seeds', unit: 'tbsp', amount: 1, genre: 'baking' },
       { name: 'vegetable oil', unit: 'tbsp', amount: 8, genre: 'dairy' },
-      { name: 'vanilla extract', unit: 'tsp', amount: 1, genre: 'baking' }
+      { name: 'vanilla extract', unit: 'tsp', amount: 1, genre: 'baking' },
+      { name: 'muffin/cupcake liners', unit: 'unit', amount: 1, genre: 'baking' }
     ],
     timeMinutes: 20,
     multitaskable: true,

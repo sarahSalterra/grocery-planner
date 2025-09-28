@@ -95,7 +95,8 @@ export const PANTRY_INVENTORY: PantryItem[] = [
   { name: '505 green chili sauce', unit: 'oz'},
   { name: '505 green chili', unit: 'oz'},
   { name: 'hashbrowns', unit: 'cup'},
-  { name: 'guerrero rousimas tortillas', unit: 'unit'}
+  { name: 'guerrero rousimas tortillas', unit: 'unit'},
+{ name: 'muffin/cupcake liners', unit: 'unit'}
 ];
 
 export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
@@ -141,10 +142,14 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'cat-scratchboard', name: 'cat scratchboard', category: 'pet' },
   { id: 'outdoor-trash-bags', name: 'outdoor trash bags', category: 'pet' },
   { id: 'lint-roller', name: 'lint roller', category: 'pet' },
+  { id: 'goat-milk', name: 'goat milk', category: 'baby' },
+  { id: 'baby-snacks', name: 'baby snacks', category: 'baby' },
+  { id: 'diapers', name: 'diapers', category: 'baby' },
+  { id: 'baby-cereal', name: 'baby cereal', category: 'baby' },
+  { id: 'baby-wipes', name: 'baby wipes', category: 'baby' },
   // food items
   { id: 'juice', name: 'juice', category: 'beverages' },
   { id: 'milk', name: 'milk', category: 'dairy' },
-  { id: 'goat-milk', name: 'goat milk', category: 'dairy' },
   { id: 'alcohol', name: 'alcohol', category: 'beverages' },
   { id: 'tuna', name: 'tuna', category: 'snacks'},
   { id: 'crackers', name: 'crackers', category: 'snacks'},
