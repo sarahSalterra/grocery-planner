@@ -127,6 +127,9 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'tampons', name: 'tampons', category: 'hygiene' },
   { id: 'liners', name: 'liners', category: 'hygiene' },
   { id: 'q-tips', name: 'q-tips', category: 'hygiene' },
+  { id: 'lotion', name: 'lotion', category: 'hygiene' },
+  { id: 'hair-treatment', name: 'hair treatment', category: 'hygiene' },
+  { id: 'chapstick', name: 'chapstick', category: 'hygiene' },
   { id: 'tissues', name: 'tissues', category: 'hygiene' },
   { id: 'cotton-pads', name: 'cotton pads', category: 'hygiene' },
   { id: 'ziplock-bags', name: 'ziplock bags', category: 'household' },
@@ -147,6 +150,7 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'diapers', name: 'diapers', category: 'baby' },
   { id: 'baby-cereal', name: 'baby cereal', category: 'baby' },
   { id: 'baby-wipes', name: 'baby wipes', category: 'baby' },
+  { id: 'rash-cream', name: 'rash cream', category: 'baby' },
   // food items
   { id: 'juice', name: 'juice', category: 'beverages' },
   { id: 'milk', name: 'milk', category: 'dairy' },
