@@ -46,7 +46,7 @@ export const MEALS: Meal[] = [
       { name: 'olive oil', unit: 'tbsp', amount: 2, genre: 'pantry' },
       { name: 'el pato tomato sauce', unit: 'oz', amount: 3, genre: 'produce' },
       { name: 'oregano', unit: 'tsp', amount: 0.5, genre: 'spices' },
-      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'pantry' },
+      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'baking' },
       { name: 'chicken stock', unit: 'cup', amount: 1, genre: 'pantry' },
       { name: 'sour cream', unit: 'cup', amount: 1, genre: 'dairy' },
       { name: 'cilantro', unit: 'unit', amount: 0.5, genre: 'produce' },
@@ -76,7 +76,7 @@ export const MEALS: Meal[] = [
       { name: 'onion (brown or white)', unit: 'unit', amount: 1, genre: 'produce' },
       { name: 'sour cream', unit: 'cup', amount: 1, genre: 'dairy' },
       { name: 'butter', unit: 'tbsp', amount: 4, genre: 'dairy' },
-      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'pantry' },
+      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'baking' },
       { name: 'chicken stock', unit: 'cup', amount: 1, genre: 'pantry' },
       { name: '505 green chili sauce', unit: 'oz', amount: 3, genre: 'pantry' },
       { name: 'cilantro', unit: 'unit', amount: 0.5, genre: 'produce' },
@@ -812,6 +812,7 @@ export const MEALS: Meal[] = [
       { name: 'thai chilies', unit: 'unit', amount: 2, genre: 'international' },
       { name: 'dried red chilies', unit: 'unit', amount: 3, genre: 'international' },
       { name: 'shredded coconut', unit: 'cup', amount: 0.25, genre: 'baking' },
+      { name: 'siracha', unit: 'tbsp', amount: 1, genre: 'international' },
       { name: 'dates', unit: 'tbsp', amount: 2, genre: 'international' },
       { name: 'tamarind', unit: 'tbsp', amount: 1, genre: 'international' },
       { name: 'tumeric', unit: 'tbsp', amount: 0.5, genre: 'spices' },
@@ -836,6 +837,42 @@ export const MEALS: Meal[] = [
       { name: 'gyoza', unit: 'unit', amount: 1, genre: 'deli' },
       { name: 'naan (flatbread)', unit: 'unit', amount: 0.5, genre: 'international' },
       { name: 'dawn paratha (flaky flatbread)', unit: 'unit', amount: 0.25, genre: 'international' }
+    ]
+  },
+  {
+    id: 'gumbo',
+    name: 'Gumbo',
+    description: 'Gumbo with chicken, shrimp, sausage, okra, and rice',
+    ingredients: [
+      { name: 'rotisserie chicken', unit: 'unit', amount: 0.5, genre: 'butchery' },
+      { name: 'shrimp', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'andouille sausage', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'okra', unit: 'cup', amount: 1, genre: 'frozen' },
+      { name: 'onion (brown or white)', unit: 'unit', amount: 0.5, genre: 'produce' },
+      { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
+      { name: 'bell pepper', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'beef stock', unit: 'cup', amount: 2, genre: 'pantry' },
+      { name: 'tapatio', unit: 'tbsp', amount: 1, genre: 'pantry' },
+      { name: 'cajun seasoning', unit: 'tbsp', amount: 1, genre: 'pantry' },
+      { name: 'curry leaves (bay leaves)', unit: 'unit', amount: 1, genre: 'international' },
+      { name: 'crab', unit: 'oz', amount: 3.5, genre: 'pantry' },
+      { name: 'bacon grease', unit: 'tbsp', amount: 4, genre: 'pantry' },
+      { name: 'flour', unit: 'tbsp', amount: 4, genre: 'baking' },
+      { name: 'tomato sauce', unit: 'oz', amount: 7, genre: 'pantry' },
+      { name: 'worcestershire sauce', unit: 'tbsp', amount: 1, genre: 'pantry' },
+      { name: 'apple cider vinegar', unit: 'tbsp', amount: 1, genre: 'pantry' }
+    ],
+    timeMinutes: 60,
+    multitaskable: false,
+    cuisine: 'American',
+    meatType: 'chicken',
+    priceLevel: '$$',
+    difficulty: 'hard',
+    timeIntensity: 'medium',
+    dishType: 'main',
+    recommendedSideMealIds: [ 'seasonal-berry-salad'],
+    recommendedSideExtraIngredients: [
+      { name: 'rice', unit: 'cup', amount: 1, genre: 'pantry' }
     ]
   },
   {
@@ -1423,6 +1460,28 @@ export const MEALS: Meal[] = [
     timeIntensity: 'long',
     dishType: 'dessert',
     extraType: 'breakfast'
+  },
+  {
+    id: 'donuts',
+    name: 'Homemade Donuts',
+    description: 'Fried donuts with powdered sugar',
+    ingredients: [
+      { name: 'flour', unit: 'cup', amount: 2.25, genre: 'baking' },
+      { name: 'powdered sugar', unit: 'cup', amount: 1, genre: 'baking' },
+      { name: 'vegetable oil', unit: 'cup', amount: 2, genre: 'pantry' },
+      { name: 'eggs', unit: 'unit', amount: 1, genre: 'dairy' },
+      { name: 'baking soda', unit: 'tsp', amount: 1, genre: 'baking' },
+      { name: 'sour cream', unit: 'cup', amount: 1, genre: 'dairy' }
+    ],
+    timeMinutes: 20,
+    multitaskable: false,
+    cuisine: 'American',
+    meatType: 'none',
+    priceLevel: '$',
+    difficulty: 'easy',
+    timeIntensity: 'quick',
+    dishType: 'dessert',
+    extraType: 'snack'
   },
   {
     id: 'peanut-butter-brownies',

@@ -10,6 +10,7 @@ export const PANTRY_INVENTORY: PantryItem[] = [
   { name: 'eggs', unit: 'unit' },
   { name: 'rice', unit: 'cup' },
   { name: 'butter', unit: 'cup' },
+  { name: 'sour cream', unit: 'cup' },
   { name: 'milk', unit: 'cup' },
   { name: 'heavy whipping cream', unit: 'cup' },
   { name: 'yogurt', unit: 'cup' },
@@ -25,6 +26,10 @@ export const PANTRY_INVENTORY: PantryItem[] = [
   { name: 'carrots', unit: 'unit' },
   { name: 'celery', unit: 'unit' },
   { name: 'potatoes', unit: 'unit' },
+  { name: 'thai chilies', unit: 'unit' },
+  { name: 'dried red chilies', unit: 'unit' },
+  { name: 'cajun seasoning', unit: 'tbsp' },
+  { name: 'curry leaves (bay leaves)', unit: 'unit' },
   { name: 'peas', unit: 'cup' },
   { name: 'tomato sauce', unit: 'cup' },
   { name: 'diced tomatoes', unit: 'cup' },
@@ -96,7 +101,7 @@ export const PANTRY_INVENTORY: PantryItem[] = [
   { name: '505 green chili', unit: 'oz'},
   { name: 'hashbrowns', unit: 'cup'},
   { name: 'guerrero rousimas tortillas', unit: 'unit'},
-{ name: 'muffin/cupcake liners', unit: 'unit'}
+  { name: 'muffin/cupcake liners', unit: 'unit'}
 ];
 
 export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
@@ -155,10 +160,10 @@ export const HOUSEHOLD_INVENTORY: HouseholdItem[] = [
   { id: 'juice', name: 'juice', category: 'beverages' },
   { id: 'milk', name: 'milk', category: 'dairy' },
   { id: 'alcohol', name: 'alcohol', category: 'beverages' },
-  { id: 'tuna', name: 'tuna', category: 'snacks'},
+  { id: 'tuna', name: 'tuna', category: 'pantry'},
   { id: 'crackers', name: 'crackers', category: 'snacks'},
   { id: 'bread', name: 'bread', category: 'snacks'},
-  { id: 'spicy-pickles', name: 'spicy pickles', category: 'snacks'},
+  { id: 'spicy-pickles', name: 'spicy pickles', category: 'pantry'},
   { id: 'ketchup', name: 'ketchup', category: 'pantry'},
   { id: 'mayonnaise', name: 'mayonnaise', category: 'pantry'},
   { id: 'mustard', name: 'mustard', category: 'pantry'},
