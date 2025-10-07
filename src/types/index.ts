@@ -54,7 +54,7 @@ export interface SelectionState {
   dessertMealIds: string[];
 }
 
-export type Mode = 'meal' | 'restock';
+export type Mode = 'meal' | 'restock' | 'useup-meal';
 
 export interface PantryCheckItem {
   ingredient: Ingredient;
