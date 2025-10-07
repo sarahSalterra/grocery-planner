@@ -10,12 +10,13 @@ import { useEffect, useMemo } from 'react';
 import { MEALS } from '@data/meals';
 import { PANTRY_INVENTORY } from '@data/inventory';
 import { aggregateIngredients, toPantryCheckItems, aggregateIngredientArray } from '@utils/aggregate';
+import { UseUpItems } from '@components/UseUpItems';
 
 export default function App() {
   const { state, dispatch } = useAppState();
-  // Build combined pantry items when we land on Pantry step
+  const pantryStepIndex = state.mode === 'useup-meal' ? 4 : 3;
   const pantryBootstrap = useMemo(() => {
-    if (state.step !== 3) return null;
+    if (state.step !== pantryStepIndex) return null;
     const mealIds = new Set<string>();
     for (const d of state.selection.days) {
       if (d.mainMealId) mealIds.add(d.mainMealId);
@@ -26,17 +27,16 @@ export default function App() {
     const aggMeals = aggregateIngredients([...selectedMeals, ...selectedDesserts]);
     const extraIngredients = state.selection.days.flatMap((d) => d.sideExtraIngredients);
     const combinedAgg = aggregateIngredientArray([...aggMeals, ...extraIngredients]);
-    // Only include items that are in the user's typical pantry inventory
     const pantrySet = new Set(PANTRY_INVENTORY.map((p) => p.name.toLowerCase()));
     const pantryOnly = combinedAgg.filter((ing) => pantrySet.has(ing.name.toLowerCase()));
     return toPantryCheckItems(pantryOnly);
-  }, [state.step, state.selection]);
+  }, [state.step, state.selection, pantryStepIndex]);
 
   useEffect(() => {
-    if (state.step === 3 && pantryBootstrap) {
+    if (state.step === pantryStepIndex && pantryBootstrap) {
       dispatch({ type: 'setPantryCheck', items: pantryBootstrap });
     }
-  }, [state.step, pantryBootstrap, dispatch]);
+  }, [state.step, pantryBootstrap, dispatch, pantryStepIndex]);
 
   return (
     <div className="app-root">
@@ -49,9 +49,20 @@ export default function App() {
         <Stepper />
         <div className="step-content">
           {state.step === 0 && <ModeSelector />}
-          {state.step === 1 && state.mode === 'meal' && <MealPlanning />}
-          {state.step === 2 && state.mode === 'meal' && <DessertsPlanning />}
-          {state.step === 3 && <PantryCheck />}
+          {state.mode === 'useup-meal' ? (
+            <>
+              {state.step === 1 && <UseUpItems />}
+              {state.step === 2 && <MealPlanning />}
+              {state.step === 3 && <DessertsPlanning />}
+              {state.step === 4 && <PantryCheck />}
+            </>
+          ) : (
+            <>
+              {state.step === 1 && state.mode === 'meal' && <MealPlanning />}
+              {state.step === 2 && state.mode === 'meal' && <DessertsPlanning />}
+              {state.step === 3 && <PantryCheck />}
+            </>
+          )}
           {state.step === 5 && <RestockStep />}
           {state.step === 6 && <FinalList />}
         </div>

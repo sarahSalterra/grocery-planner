@@ -16,6 +16,7 @@ type Action =
   | { type: 'setPantryCheck'; items: PantryCheckItem[] }
   | { type: 'updatePantryCheck'; index: number; haveEnough: boolean }
   | { type: 'setRestockSelected'; ids: string[] }
+  | { type: 'prepopulateMains'; mealIds: string[] }
   | { type: 'resetAll' };
 
 const initialSelection: SelectionState = {
@@ -104,6 +105,19 @@ function reducer(state: AppStateShape, action: Action): AppStateShape {
     }
     case 'setRestockSelected':
       return { ...state, restockSelectedIds: action.ids };
+    case 'prepopulateMains': {
+      const ids = action.mealIds || [];
+      let days = state.selection.days.map((d) => ({ ...d }));
+      for (const id of ids) {
+        let idx = days.findIndex((d) => !d.mainMealId);
+        if (idx === -1) {
+          days = [...days, { mainMealId: undefined, sideMealIds: [], sideExtraIngredients: [] }];
+          idx = days.length - 1;
+        }
+        days[idx] = { ...days[idx], mainMealId: id };
+      }
+      return { ...state, selection: { ...state.selection, days, numDays: days.length } };
+    }
     case 'resetAll':
       return initialState;
     default:
