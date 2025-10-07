@@ -17,7 +17,10 @@ type Action =
   | { type: 'updatePantryCheck'; index: number; haveEnough: boolean }
   | { type: 'setRestockSelected'; ids: string[] }
   | { type: 'prepopulateMains'; mealIds: string[] }
-  | { type: 'resetAll' };
+  | { type: 'resetAll' }
+  | { type: 'saveFinalList'; items: import('@types').SavedItem[] }
+  | { type: 'hydrateSavedFinalList'; items: import('@types').SavedItem[] }
+  | { type: 'showSavedFinal' };
 
 const initialSelection: SelectionState = {
   numDays: 3,
@@ -31,6 +34,8 @@ const initialState: AppStateShape = {
   selection: initialSelection,
   pantryCheck: [],
   restockSelectedIds: [],
+  savedFinalList: [],
+  showSavedFinal: false,
 };
 
 function ensureDaysLength(selection: SelectionState, numDays: number): SelectionState {
@@ -118,6 +123,14 @@ function reducer(state: AppStateShape, action: Action): AppStateShape {
       }
       return { ...state, selection: { ...state.selection, days, numDays: days.length } };
     }
+    case 'saveFinalList':
+      return { ...state, savedFinalList: action.items };
+
+    case 'hydrateSavedFinalList':
+      return { ...state, savedFinalList: action.items || [] };
+
+    case 'showSavedFinal':
+      return { ...state, showSavedFinal: true, step: 6 };
     case 'resetAll':
       return initialState;
     default:
@@ -130,6 +143,17 @@ const AppStateContext = createContext<{ state: AppStateShape; dispatch: React.Di
 export function AppStateProvider({ children }: { children: React.ReactNode }) {
   // Start fresh every load (no persistence)
   const [state, dispatch] = useReducer(reducer, initialState);
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem('savedFinalList');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          dispatch({ type: 'hydrateSavedFinalList', items: parsed });
+        }
+      }
+    } catch {}
+  }, []);
   const value = useMemo(() => ({ state, dispatch }), [state]);
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;
 }

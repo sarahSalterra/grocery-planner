@@ -67,6 +67,14 @@ export interface AppStateShape {
   selection: SelectionState;
   pantryCheck: PantryCheckItem[]; // combined meals + desserts
   restockSelectedIds: string[]; // household items
+  savedFinalList: SavedItem[];
+  showSavedFinal: boolean;
 }
 
-
+export interface SavedItem {
+  name: string;
+  genre: string;
+  amount?: number;
+  unit?: string;
+  type: 'ingredient' | 'household';
+}

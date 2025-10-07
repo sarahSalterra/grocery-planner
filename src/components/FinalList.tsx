@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useAppState } from '@state/AppState';
 import { MEALS } from '@data/meals';
 import { aggregateIngredients, aggregateIngredientArray } from '@utils/aggregate';
@@ -109,11 +109,38 @@ export function FinalList() {
     };
   });
 
-  const combinedList: CombinedItem[] = [...Array.from(mergedIngredientsMap.values())]
-    .concat(
-      householdItems.filter((h) => !mergedIngredientsByName.has(h.name.toLowerCase()))
-    )
-    .sort((a, b) => genreIndex(a.genre) - genreIndex(b.genre) || a.name.localeCompare(b.name));
+  const combinedListFromSaved = useMemo(() => {
+      if (!state.showSavedFinal || !state.savedFinalList || state.savedFinalList.length === 0) return null;
+      return state.savedFinalList.map((s, idx) => ({
+        key: `saved:${idx}:${s.name}:${s.unit || ''}:${s.type}`,
+        name: s.name,
+        genre: s.genre,
+        amount: s.amount,
+        unit: s.unit,
+        type: s.type,
+      }));
+    }, [state.showSavedFinal, state.savedFinalList]);
+    
+  const combinedList: CombinedItem[] = useMemo(() => {
+      return combinedListFromSaved ?? (
+        [...Array.from(mergedIngredientsMap.values())]
+          .concat(householdItems.filter((h) => !mergedIngredientsByName.has(h.name.toLowerCase())))
+          .sort((a, b) => genreIndex(a.genre) - genreIndex(b.genre) || a.name.localeCompare(b.name))
+      );
+    }, [combinedListFromSaved, mergedIngredientsMap, householdItems, mergedIngredientsByName]);  
+
+  useEffect(() => {
+      if (state.showSavedFinal) return; // do not overwrite when viewing saved
+      const snapshot = combinedList.map(i => ({
+        name: i.name,
+        genre: i.genre,
+        amount: i.amount,
+        unit: i.unit,
+        type: i.type,
+      }));
+      try { localStorage.setItem('savedFinalList', JSON.stringify(snapshot)); } catch {}
+      dispatch({ type: 'saveFinalList', items: snapshot });
+    }, [combinedList, state.showSavedFinal, dispatch]);
 
   const clearAll = () => dispatch({ type: 'resetAll' });
 
