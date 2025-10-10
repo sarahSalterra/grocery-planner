@@ -40,11 +40,7 @@ export default function App() {
 
   return (
     <div className="app-root">
-      <header className="app-header">
-        <div className="brand">Grocery Planner</div>
-        <div className="subtitle">Smart meal planning and restocking, all local.</div>
-      </header>
-
+      
       <main className="app-main">
         <Stepper />
         <div className="step-content">
