@@ -40,7 +40,6 @@ export default function App() {
 
   return (
     <div className="app-root">
-      
       <main className="app-main">
         <Stepper />
         <div className="step-content">
@@ -63,10 +62,6 @@ export default function App() {
           {state.step === 6 && <FinalList />}
         </div>
       </main>
-
-      <footer className="app-footer">
-        <span>© {new Date().getFullYear()} Grocery Planner</span>
-      </footer>
     </div>
   );
 }
