@@ -3,7 +3,7 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export type TimeIntensity = 'quick' | 'medium' | 'long';
 export type DishType = 'main' | 'side' | 'dessert';
 export type MeatType = 'beef' | 'chicken' | 'pork' | 'seafood' | 'vegetarian' | 'none';
-export type Genre = 'international' | 'produce' | 'deli' | 'bakery' | 'pantry' | 'baking' | 'spices' | 'butchery' | 'frozen' | 'dairy' | 'snacks' | 'beverages';
+export type Genre = 'international' | 'produce' | 'deli' | 'bakery' | 'pantry' | 'spices' | 'baking' | 'butchery' | 'dairy'  | 'frozen' | 'snacks' | 'beverages';
 export type ExtraType = 'dessert' | 'snack' | 'breakfast' | 'beverages';
 
 export interface Ingredient {
@@ -39,7 +39,7 @@ export interface PantryItem {
 export interface HouseholdItem {
   id: string;
   name: string;
-  category: 'snacks' | 'beverages' | 'pantry' | 'butchery' | 'dairy' | 'frozen' | 'spices' | 'baking' | 'household' | 'hygiene' | 'pet' | 'baby' | 'other';
+  category: 'pantry' | 'spices' | 'baking' | 'butchery' | 'dairy' | 'frozen' | 'snacks' | 'beverages' | 'pet' | 'household' | 'hygiene' | 'baby' | 'other';
 }
 
 export interface DayPlan {

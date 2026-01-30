@@ -335,7 +335,7 @@ export const MEALS: Meal[] = [
       { name: 'ricotta cheese', unit: 'cup', amount: 1, genre: 'dairy' },
       { name: 'parmesan cheese', unit: 'cup', amount: 1, genre: 'deli' },
       { name: 'mozzarella cheese', unit: 'cup', amount: 2, genre: 'dairy' },
-      { name: 'egg', unit: 'unit', amount: 1, genre: 'dairy' },
+      { name: 'eggs', unit: 'unit', amount: 1, genre: 'dairy' },
       { name: 'basil', unit: 'tbsp', amount: 1, genre: 'spices' },
       { name: 'oregano', unit: 'tbsp', amount: 1, genre: 'spices' }
     ],
@@ -363,7 +363,7 @@ export const MEALS: Meal[] = [
       { name: 'rotisserie chicken', unit: 'unit', amount: 0.5, genre: 'butchery' },
       { name: 'heavy whipping cream', unit: 'cup', amount: 0.5, genre: 'dairy' },
       { name: 'butter', unit: 'tbsp', amount: 8, genre: 'dairy' },
-      { name: 'flour', unit: 'tbsp', amount: 4, genre: 'baking' },
+      { name: 'flour', unit: 'cup', amount: 0.25, genre: 'baking' },
       { name: 'parmesan cheese', unit: 'cup', amount: 2, genre: 'deli' },
       { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
       { name: 'nutmeg', unit: 'tsp', amount: 0.5, genre: 'spices' }
@@ -392,7 +392,7 @@ export const MEALS: Meal[] = [
       { name: '505 green chili', unit: 'oz', amount: 3, genre: 'pantry' },
       { name: 'heavy whipping cream', unit: 'cup', amount: 0.5, genre: 'dairy' },
       { name: 'butter', unit: 'tbsp', amount: 4, genre: 'dairy' },
-      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'baking' },
+      { name: 'flour', unit: 'cup', amount: 0.125, genre: 'baking' },
       { name: 'milk', unit: 'cup', amount: 0.5, genre: 'dairy' },
       { name: 'cheddar cheese', unit: 'cup', amount: 2, genre: 'dairy' },
       { name: 'monterey jack cheese', unit: 'cup', amount: 1, genre: 'dairy' },
@@ -443,7 +443,7 @@ export const MEALS: Meal[] = [
       { name: 'onion (brown or white)', unit: 'unit', amount: 0.25, genre: 'produce' },
       { name: 'heavy whipping cream', unit: 'cup', amount: 0.5, genre: 'dairy' },
       { name: 'butter', unit: 'tbsp', amount: 4, genre: 'dairy' },
-      { name: 'flour', unit: 'tbsp', amount: 2, genre: 'baking' }
+      { name: 'flour', unit: 'cup', amount: 0.125, genre: 'baking' }
     ],
     timeMinutes: 50,
     multitaskable: false,
@@ -467,7 +467,7 @@ export const MEALS: Meal[] = [
       { name: 'crackers', unit: 'cup', amount: 1, genre: 'snacks' },
       { name: 'quick oats', unit: 'cup', amount: 1, genre: 'pantry' },
       { name: 'onion (brown or white)', unit: 'unit', amount: 0.5, genre: 'produce' },
-      { name: 'egg', unit: 'unit', amount: 1, genre: 'dairy' },
+      { name: 'eggs', unit: 'unit', amount: 1, genre: 'dairy' },
       { name: 'grated parmesan', unit: 'cup', amount: 1, genre: 'deli' },
       { name: 'worcestershire sauce', unit: 'tbsp', amount: 1, genre: 'pantry' },
       { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
@@ -857,7 +857,7 @@ export const MEALS: Meal[] = [
       { name: 'curry leaves (bay leaves)', unit: 'unit', amount: 1, genre: 'international' },
       { name: 'crab', unit: 'oz', amount: 3.5, genre: 'pantry' },
       { name: 'bacon grease', unit: 'tbsp', amount: 4, genre: 'pantry' },
-      { name: 'flour', unit: 'tbsp', amount: 4, genre: 'baking' },
+      { name: 'flour', unit: 'cup', amount: 0.25, genre: 'baking' },
       { name: 'tomato sauce', unit: 'oz', amount: 7, genre: 'pantry' },
       { name: 'worcestershire sauce', unit: 'tbsp', amount: 1, genre: 'pantry' },
       { name: 'apple cider vinegar', unit: 'tbsp', amount: 1, genre: 'pantry' }
@@ -991,7 +991,7 @@ export const MEALS: Meal[] = [
     name: 'Southwest Chili',
     description: 'Southwest chili with beef, beans, corn, and tomatoes',
     ingredients: [
-      { name: 'beef', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'ground beef', unit: 'lb', amount: 1, genre: 'butchery' },
       { name: 'ranch style beans with jalapeno', unit: 'oz', amount: 7, genre: 'pantry' },
       { name: 'black beans', unit: 'oz', amount: 7, genre: 'pantry' },
       { name: 'corn', unit: 'cup', amount: 1, genre: 'frozen' },
@@ -1025,7 +1025,7 @@ export const MEALS: Meal[] = [
     ingredients: [
       { name: 'cornmeal', unit: 'cup', amount: 0.5, genre: 'baking' },
       { name: 'flour', unit: 'cup', amount: 1.5, genre: 'baking' },
-      { name: 'sugar', unit: 'tbsp', amount: 1, genre: 'baking' },
+      { name: 'sugar', unit: 'cup', amount: 0.0625, genre: 'baking' },
       { name: 'baking powder', unit: 'tbsp', amount: 1, genre: 'baking' },
       { name: 'vegetable oil', unit: 'cup', amount: 0.33, genre: 'pantry' },
       { name: 'butter', unit: 'tbsp', amount: 3, genre: 'dairy' },
@@ -1267,7 +1267,7 @@ export const MEALS: Meal[] = [
       { name: 'flour', unit: 'cup', amount: 0.25, genre: 'baking' },
       { name: 'butter', unit: 'tbsp', amount: 4, genre: 'dairy' },
       { name: 'pie crust', unit: 'unit', amount: 2, genre: 'dairy' },
-      { name: 'egg', unit: 'unit', amount: 1, genre: 'dairy' }
+      { name: 'eggs', unit: 'unit', amount: 1, genre: 'dairy' }
     ],
     timeMinutes: 50,
     multitaskable: true,
@@ -1348,7 +1348,8 @@ export const MEALS: Meal[] = [
       { name: 'olive oil', unit: 'tbsp', amount: 2, genre: 'pantry' },
       { name: 'brown fish paste', unit: 'tbsp', amount: 1, genre: 'international' },
       { name: 'msg', unit: 'tbsp', amount: 1, genre: 'international' },
-      { name: 'rice noodles', unit: 'unit', amount: 1, genre: 'international' }
+      { name: 'rice noodles', unit: 'unit', amount: 1, genre: 'international' },
+      { name: 'sweet chili sauce', unit: 'tbsp', amount: 1, genre: 'international' }
     ],
     timeMinutes: 25,
     multitaskable: true,
@@ -1544,7 +1545,7 @@ export const MEALS: Meal[] = [
       { name: 'baking soda', unit: 'tsp', amount: 2, genre: 'baking' },
       { name: 'cinnamon', unit: 'tsp', amount: 1, genre: 'spices' },
       { name: 'cloves', unit: 'tsp', amount: 0.5, genre: 'spices' },
-      { name: 'egg', unit: 'unit', amount: 1, genre: 'dairy' },
+      { name: 'eggs', unit: 'unit', amount: 1, genre: 'dairy' },
       { name: 'ginger', unit: 'tsp', amount: 1, genre: 'spices' }
     ],
     timeMinutes: 20,
