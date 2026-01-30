@@ -28,6 +28,7 @@ export const PANTRY_INVENTORY: PantryItem[] = [
   { name: 'potatoes', unit: 'unit' },
   { name: 'thai chilies', unit: 'unit' },
   { name: 'dried red chilies', unit: 'unit' },
+  { name: 'sweet chili sauce', unit: 'tbsp' },
   { name: 'cajun seasoning', unit: 'tbsp' },
   { name: 'curry leaves (bay leaves)', unit: 'unit' },
   { name: 'peas', unit: 'cup' },

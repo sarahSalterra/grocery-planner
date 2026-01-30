@@ -485,9 +485,38 @@ export const MEALS: Meal[] = [
     difficulty: 'easy',
     timeIntensity: 'medium',
     dishType: 'main',
-    recommendedSideMealIds: ['mashed-potatoes'],
+    recommendedSideMealIds: ['mashed-potatoes','seasonal-berry-salad'],
     recommendedSideExtraIngredients: [
-      { name: 'canned green beans', unit: 'oz', amount: 14, genre: 'pantry' }
+      { name: 'canned green beans', unit: 'oz', amount: 14, genre: 'pantry' },
+      { name: 'stuffing mix', unit: 'unit', amount: 1, genre: 'pantry' }
+    ]
+  },
+  {
+    id: 'pot-roast',
+    name: 'Pot Roast',
+    description: 'Pot roast with potatoes, carrots, and onions',
+    ingredients: [
+      { name: 'beef roast', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'potatoes', unit: 'unit', amount: 4, genre: 'produce' },
+      { name: 'carrots', unit: 'unit', amount: 2, genre: 'produce' },
+      { name: 'onions', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
+      { name: 'beef stock', unit: 'tbsp', amount: 1, genre: 'pantry' },
+      { name: 'thyme', unit: 'tbsp', amount: 1, genre: 'spices' },
+      { name: 'bay leaves', unit: 'unit', amount: 1, genre: 'pantry' },
+      { name: 'gravy mix', unit: 'unit', amount: 1, genre: 'pantry' }
+    ],
+    timeMinutes: 90,
+    multitaskable: true,
+    cuisine: 'American',
+    meatType: 'beef',
+    priceLevel: '$$',
+    difficulty: 'medium',
+    timeIntensity: 'long',
+    dishType: 'main',
+    recommendedSideMealIds: ['seasonal-berry-salad'],
+    recommendedSideExtraIngredients: [
+      { name: 'stuffing mix', unit: 'unit', amount: 1, genre: 'pantry' }
     ]
   },
   {
@@ -542,6 +571,32 @@ export const MEALS: Meal[] = [
       { name: 'tots', unit: 'unit', amount: 1, genre: 'frozen' },
       { name: 'onion rings', unit: 'unit', amount: 1, genre: 'frozen' },
       { name: 'baked beans', unit: 'oz', amount: 7, genre: 'pantry' }
+    ]
+  },
+  {
+    id: 'salmon-blts',
+    name: 'Salmon BLTs',
+    description: 'Salmon sandwiches with lettuce, tomato, and bacon',
+    ingredients: [
+      { name: 'salmon', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'lettuce', unit: 'unit', amount: 0.5, genre: 'produce' },
+      { name: 'tomato', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'avocado', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'bacon', unit: 'unit', amount: 1, genre: 'deli' },
+      { name: 'mayonnaise', unit: 'cup', amount: 0.5, genre: 'dairy' },
+      { name: 'hamburger buns', unit: 'unit', amount: 1, genre: 'bakery' }
+    ],
+    timeMinutes: 30,
+    multitaskable: true,
+    cuisine: 'American',
+    meatType: 'seafood',
+    priceLevel: '$$',
+    difficulty: 'easy',
+    timeIntensity: 'quick',
+    dishType: 'main',
+    recommendedSideMealIds: ['bbq-beans', 'deviled-eggs'],
+    recommendedSideExtraIngredients: [
+      { name: 'fries', unit: 'unit', amount: 1, genre: 'frozen' }
     ]
   },
   {
@@ -612,7 +667,8 @@ export const MEALS: Meal[] = [
       { name: 'potatoes', unit: 'unit', amount: 4, genre: 'produce' },
       { name: 'butter', unit: 'tbsp', amount: 8, genre: 'dairy' },
       { name: 'milk', unit: 'cup', amount: 0.5, genre: 'dairy' },
-      { name: 'sour cream', unit: 'cup', amount: 0.5, genre: 'dairy' }
+      { name: 'sour cream', unit: 'cup', amount: 0.5, genre: 'dairy' },
+      { name: 'gravy mix', unit: 'unit', amount: 1, genre: 'pantry' }
     ],
     timeMinutes: 30,
     multitaskable: true,
@@ -622,6 +678,45 @@ export const MEALS: Meal[] = [
     difficulty: 'easy',
     timeIntensity: 'quick',
     dishType: 'side'
+  },
+  {
+    id: 'kosheri-with-meat',
+    name: 'Kosheri with Meat',
+    description: 'Kosheri (spicy lentil rice pasta) with tomato sauce, meat, and onions',
+    ingredients: [
+      { name: 'rice', unit: 'cup', amount: 1, genre: 'pantry' },
+      { name: 'lentils', unit: 'cup', amount: 1, genre: 'pantry' },
+      { name: 'ground beef', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'chickpeas', unit: 'oz', amount: 7, genre: 'pantry' },
+      { name: 'macaroni', unit: 'unit', amount: 0.5, genre: 'pantry' },
+      { name: 'diced tomatoes', unit: 'oz', amount: 7, genre: 'pantry' },
+      { name: 'onion (brown or white)', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
+      { name: 'tomato paste', unit: 'oz', amount: 3.5, genre: 'pantry' },
+      { name: 'garlic', unit: 'clove', amount: 4, genre: 'produce' },
+      { name: 'coriander', unit: 'tsp', amount: 1, genre: 'spices' },
+      { name: 'cumin', unit: 'tsp', amount: 1, genre: 'spices' },
+      { name: 'allspice', unit: 'tsp', amount: 0.25, genre: 'spices' },
+      { name: 'cinnamon', unit: 'tsp', amount: 0.5, genre: 'spices' },
+      { name: 'paprika', unit: 'tsp', amount: 1, genre: 'spices' },
+      { name: 'fennel seeds', unit: 'tsp', amount: 1, genre: 'spices' },
+      { name: 'chili powder', unit: 'tsp', amount: 1, genre: 'spices' },
+      { name: 'crispy onions', unit: 'unit', amount: 1, genre: 'pantry' },
+      { name: 'olive oil', unit: 'tbsp', amount: 8, genre: 'pantry' },
+      { name: 'chili oil', unit: 'tbsp', amount: 1, genre: 'international' }
+    ],
+    timeMinutes: 60,
+    multitaskable: false,
+    cuisine: 'Egyptian',
+    meatType: 'beef',
+    priceLevel: '$$',
+    difficulty: 'medium',
+    timeIntensity: 'medium',
+    dishType: 'main',
+    recommendedSideMealIds: ['fatoush-salad'],
+    recommendedSideExtraIngredients: [
+      { name: 'olives', unit: 'oz', amount: 3.5, genre: 'pantry' }
+    ]
   },
   {
     id: 'korean-beef',
@@ -674,7 +769,7 @@ export const MEALS: Meal[] = [
       { name: 'nori', unit: 'unit', amount: 1, genre: 'international' },
       { name: 'siracha', unit: 'tbsp', amount: 1, genre: 'pantry' },
       { name: 'fish sauce', unit: 'tbsp', amount: 1, genre: 'international' },
-      { name: 'tankatsu pork stock', unit: 'cup', amount: 3, genre: 'international' },
+      { name: 'tankatsu pork stock', unit: 'tbsp', amount: 3, genre: 'international' },
       { name: 'msg', unit: 'tsp', amount: 1, genre: 'international' }
     ],
     timeMinutes: 50,
@@ -1691,6 +1786,39 @@ export const MEALS: Meal[] = [
     timeIntensity: 'medium',
     dishType: 'main',
     recommendedSideMealIds: [ 'bao-buns' ],
+    recommendedSideExtraIngredients: [
+      { name: 'gyoza', unit: 'unit', amount: 1, genre: 'deli' }
+    ]
+  },
+  {
+    id: 'tom-kha-gai',
+    name: 'Tom Kha Gai',
+    description: 'Thai soup with shrimp, mushrooms, and coconut milk',
+    ingredients: [
+      { name: 'shrimp', unit: 'lb', amount: 1, genre: 'butchery' },
+      { name: 'mushrooms', unit: 'cup', amount: 1, genre: 'produce' },
+      { name: 'coconut milk', unit: 'oz', amount: 7, genre: 'international' },
+      { name: 'ginger root', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'lemongrass', unit: 'unit', amount: 1, genre: 'international' },
+      { name: 'lime leaves', unit: 'unit', amount: 1, genre: 'international' },
+      { name: 'green onions', unit: 'unit', amount: 0.5, genre: 'produce' },
+      { name: 'limes', unit: 'unit', amount: 1, genre: 'produce' },
+      { name: 'fish sauce', unit: 'tbsp', amount: 1, genre: 'international' },
+      { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' },
+      { name: 'chicken stock', unit: 'cup', amount: 1, genre: 'pantry' },
+      { name: 'thai chilies', unit: 'unit', amount: 1, genre: 'pantry' },
+      { name: 'chili flakes', unit: 'tbsp', amount: 1, genre: 'pantry' },
+      { name: 'garlic', unit: 'clove', amount: 3, genre: 'produce' }
+    ],
+    timeMinutes: 30,
+    multitaskable: false,
+    cuisine: 'Thai',
+    meatType: 'seafood',
+    priceLevel: '$$',
+    difficulty: 'easy',
+    timeIntensity: 'quick',
+    dishType: 'main',
+    recommendedSideMealIds: ['bao-buns'],
     recommendedSideExtraIngredients: [
       { name: 'gyoza', unit: 'unit', amount: 1, genre: 'deli' }
     ]

@@ -17,6 +17,7 @@ function normalizeCuisine(cuisine: string): string {
   const c = cuisine.toLowerCase();
   if (['russian', 'ukrainian', 'belarusian', 'polish', 'slovak', 'slavic'].includes(c)) return 'Slavic';
   if (['chinese', 'japanese', 'korean', 'thai', 'vietnamese', 'indian', 'asian'].includes(c)) return 'Asian';
+  if (['egyptian', 'arabic', 'middle eastern'].includes(c)) return 'Mediterranean';
   // pass-through common
   if (c === 'french') return 'French';
   return cuisine;
